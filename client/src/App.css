@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+:root {
+  --primary-color: #ff6e40;
+  /* --secondary-color: #f99500; */
+  /* --light-color: #f3f3f3; */
+  --dark-color: #28334aff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+/* nav */
+#nav {
+  display: flex;
+  background: #ff9e80;
+  color: #333;
+  position: sticky;
+  top: 0;
+  /*will stick at the top*/
+  justify-content: space-between;
+  z-index: 1;
+  height: 50px;
+  /*the higher the number the closer to the screen */
+  padding: 0.5rem 2rem;
+  border-bottom: 2px solid #333;
+  /* max-width: 1600px; */
+  /* margin: auto; */
+}
+#nav img {
+  height: 40px;
+}
+
+#nav .text-primary {
+  position: relative;
+  top: -8px;
+  color: var(--dark-color);
+  font-size: 2rem;
+  text-align: start;
+}
+
+#nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#nav a {
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+}
+#nav ul li a {
+  font-size: 1.2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+#nav ul li a:hover {
+  /* font-size: 10rem; */
+  color: var(--primary-color);
+  background-color: var(--dark-color);
+  border-radius: 5px;
+}
+.logo a {
+  margin-bottom: 5rem;
+  /* display: none; */
+}
+
+a {
+  text-decoration: none;
+}
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  background-color: white;
+  margin: auto;
+  /*In the middle */
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.ranking-item {
+  height: 150px;
+  border: 1px solid black;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-areas:
+    "name desc "
+    "rating desc "
+    "none desc ";
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 2.5rem 1fr;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.restaurant-name {
+  color: #dd2c00;
+  font-size: 2rem;
+  grid-area: name;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  grid-area: rating;
+}
+.description {
+  grid-area: desc;
+}
