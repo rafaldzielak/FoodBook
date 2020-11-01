@@ -9,7 +9,10 @@ const Ranking = ({ restaurants, getRestaurants }) => {
   }, []);
   return (
     <Fragment>
-      <RankingItem />
+      <h3 class='best-restaurants'>
+        Best Restaurants for city{" "}
+        {restaurants.length > 0 && restaurants[0].restaurant.location.city}:
+      </h3>
       {console.log(restaurants)}
       {restaurants.map((restaurant) => (
         <RankingItem restaurant={restaurant.restaurant} />

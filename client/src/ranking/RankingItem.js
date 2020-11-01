@@ -101,11 +101,11 @@ const RankingItem = (props) => {
             {restaurant.phone_numbers}
           </div>
           <div className='food'>
-            <i class='fas fa-utensils'></i>&nbsp;&nbsp;
+            <i class='fas fa-utensils'></i>&nbsp;
             {restaurant.cuisines && restaurant.cuisines}
           </div>
           <div className='map'>
-            <i class='fas fa-map-marker-alt'></i> &nbsp;
+            <i class='fas fa-map-marker-alt'></i>&nbsp;
             <a
               href={`http://www.google.com/maps/place/${restaurant.location.latitude},${restaurant.location.longitude}`}
               target='_blank'>
@@ -113,7 +113,8 @@ const RankingItem = (props) => {
             </a>
           </div>
           <div className='price'>
-            <i class='fas fa-dollar-sign'></i>&nbsp;<b>{getPrice(restaurant.price_range)}</b>
+            <i class='fas fa-dollar-sign'></i>
+            <b>{getPrice(restaurant.price_range)}</b>
           </div>
           <div className='book'>
             <a href={`${restaurant.menu_url}`} target='_blank'>

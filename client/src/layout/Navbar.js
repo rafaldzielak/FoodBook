@@ -12,9 +12,6 @@ const Navbar = () => {
       </div>
       <ul>
         <li>
-          <a href='#home'>Strona Główna</a>
-        </li>
-        <li>
           <a href='#what'>Zakres Usług</a>
         </li>
         <li>

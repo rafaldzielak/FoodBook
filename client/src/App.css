@@ -6,6 +6,10 @@
   /* --light-color: #f3f3f3; */
   --dark-color: #28334aff;
 }
+h3 {
+  text-align: center;
+  color: var(--dark-color);
+}
 
 * {
   box-sizing: border-box;
@@ -86,7 +90,7 @@ a {
   text-decoration: none;
 }
 /* Utility Classes */
-.container {
+.container-custom {
   max-width: 1200px;
   background-color: white;
   margin: auto;
@@ -106,13 +110,14 @@ a {
     "photo phone book "
     "photo food more";
   grid-template-columns: 150px 1fr 1.2fr;
-  grid-template-rows: 0.5fr 1.2fr 1.2fr 1.2fr;
-  grid-template-rows: 2.5rem 1fr;
+  grid-template-rows: 1.1fr 1fr 1fr 1fr;
   gap: 0.4rem 1rem;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 .ranking-item i {
   color: var(--primary-color);
+  width: 17px;
+  text-align: center;
 }
 .phone {
   grid-area: phone;
@@ -154,6 +159,7 @@ a {
   grid-area: price;
 }
 .more {
+  cursor: pointer;
   grid-area: more;
 }
 
@@ -171,4 +177,176 @@ a {
 .alert-success {
   background: #43a047;
   color: #fff;
+}
+
+@media only screen and (max-width: 900px) {
+  h3 {
+    font-size: 2rem;
+  }
+  #nav a {
+    color: #333;
+    padding: 0rem 0.8rem;
+    margin: 0 0.2rem;
+  }
+  #nav ul li a {
+    font-size: 1.2rem;
+  }
+  #nav .text-primary {
+    font-size: 1.8rem;
+  }
+  .restaurant-name {
+    font-size: 1.4rem;
+  }
+  .ranking-item {
+    font-size: 0.9rem;
+  }
+  .restaurant-photo {
+    width: 120px;
+  }
+  .ranking-item {
+    grid-template-columns: 120px 1fr 1.2fr;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  h3 {
+    font-size: 1.8rem;
+  }
+  .container-custom {
+    padding: 0.2rem;
+  }
+  #nav {
+    padding: 0.5rem 0;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  #nav a {
+    color: #333;
+    padding: 0rem 0.6rem;
+    margin: 0 0.2rem;
+  }
+  #nav ul li a {
+    font-size: 1rem;
+  }
+  #nav .text-primary {
+    font-size: 1.8rem;
+  }
+  .restaurant-name {
+    font-size: 1rem;
+  }
+  .ranking-item {
+    font-size: 0.8rem;
+  }
+  .restaurant-photo {
+    width: 120px;
+  }
+  .ranking-item {
+    grid-template-columns: 120px 1fr 1.2fr;
+    padding: 0.4rem;
+  }
+  .ranking-item i {
+    color: var(--primary-color);
+    width: 13px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  #nav img {
+    height: 30px;
+  }
+  #nav .text-primary {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  .container-custom {
+    padding: 0.2rem;
+  }
+  .ranking-item {
+    margin: 1rem 0rem;
+    height: 200px;
+    grid-template-areas:
+      "photo name"
+      "photo rating"
+      "photo phone"
+      "photo food"
+      " photo map "
+      " photo price "
+      " photo book "
+      " photo more";
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0.4rem 1rem;
+    padding: 0.4rem;
+  }
+  .restaurant-photo {
+    width: 150px;
+  }
+  .restaurant-name {
+    font-size: 1.2rem;
+  }
+  .map {
+    align-self: auto;
+  }
+}
+@media only screen and (max-width: 430px) {
+  #nav .text-primary {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  .container-custom {
+    padding: 0.2rem;
+  }
+  .ranking-item {
+    margin: 1rem 0rem;
+    height: 200px;
+
+    grid-template-areas:
+      "photo name"
+      "photo rating"
+      "photo phone"
+      "photo food"
+      " photo map "
+      " photo price "
+      " photo book "
+      " photo more";
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0.1rem 1rem;
+    padding: 0.4rem;
+  }
+  .restaurant-photo {
+    width: 150px;
+  }
+  .restaurant-name {
+    font-size: 1.2rem;
+  }
+  .map {
+    align-self: auto;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  h3 {
+    font-size: 1.3rem;
+  }
+  .ranking-item {
+    margin: 0.5rem 0rem;
+    height: 200px;
+    grid-template-columns: 130px 1fr;
+    gap: 0.1rem 0.5rem;
+    padding: 0.4rem;
+  }
+  .restaurant-photo {
+    width: 130px;
+  }
+
+  .ranking-item i {
+    width: 11px;
+  }
 }

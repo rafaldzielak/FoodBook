@@ -11,7 +11,7 @@ function App() {
     <Provider store={store}>
       <Fragment>
         <Navbar />
-        <div className='container'>
+        <div className='container-custom'>
           <Alert />
           <Landing />
         </div>
