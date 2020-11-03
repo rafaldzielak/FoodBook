@@ -67,11 +67,7 @@ const RankingItem = (props) => {
         </Fragment>
       );
   };
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+
   function getPrice(number) {
     let dollars = " ";
     for (let i = 0; i < number; i++) {
@@ -81,14 +77,10 @@ const RankingItem = (props) => {
   }
   return (
     <Fragment>
-      {console.log(restaurant)}
+      {/* {console.log(restaurant)} */}
       {restaurant && (
         <div className='ranking-item'>
-          <img
-            className='restaurant-photo'
-            src={`https://source.unsplash.com/${getRandomInt(200, 400)}x200/?restaurant`}
-            alt=''
-          />
+          <img className='restaurant-photo' src={restaurant.photo} alt='' />
           <div className='restaurant-name'>{restaurant.name}</div>
           <div className='rating'>
             <span className='stars'>{getStarRating(restaurant.user_rating.aggregate_rating)}</span>

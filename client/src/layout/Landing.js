@@ -5,7 +5,7 @@ import Search from "./Search";
 const Landing = () => {
   return (
     <div>
-      <Search />
+      
       <Ranking />
     </div>
   );

@@ -1,4 +1,4 @@
-import { GET_RESTAURANTS, CLEAR_RESTAURANTS } from "../actions/types.js";
+import { GET_RESTAURANTS, CLEAR_RESTAURANTS, SET_LOADING } from "../actions/types.js";
 
 const initialState = {
   restaurants: [],
@@ -12,6 +12,9 @@ export default function (state = initialState, action) {
   switch (type) {
     case GET_RESTAURANTS:
       return { ...state, restaurants: payload.restaurants, loading: false };
+    case SET_LOADING:
+      console.log("set loading");
+      return { ...state, loading: true };
     default:
       return state;
   }

@@ -5,6 +5,6 @@ const { getRestaurants } = require("../controllers/restaurants");
 
 const router = express.Router();
 
-router.route("/:cityquery").get(getRestaurants);
+router.route("/:cityquery/:page").get(getRestaurants);
 
 module.exports = router;
