@@ -54,16 +54,20 @@ p {
   background-color: #aaa;
 }
 .page.disabled {
-  color: #bbb
+  color: #bbb;
 }
 .page.disabled:hover {
   background-color: #eee;
   cursor: auto;
 }
-.material-icons {
-  font-size: 10rem;
-}
 
+
+.noUi-connect {
+  background-color: var(--primary-color);
+}
+.c-1-color {
+  background-color: var(--primary-color);
+}
 
 /* nav */
 #nav {

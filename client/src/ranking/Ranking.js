@@ -6,15 +6,8 @@ import Pagination from "./Pagination";
 import Search from "../layout/Search";
 import Spinner from "../layout/Spinner";
 
-const Ranking = ({
-  setLoadingRestaurants,
-  city,
-  restaurants: { restaurants, loading },
-  getRestaurants,
-}) => {
-  // const { loading } = restaurants;
+const Ranking = ({ restaurants: { restaurants, loading } }) => {
   console.log(restaurants);
-  // useEffect(() => {}, [city]);
 
   return (
     <Fragment>

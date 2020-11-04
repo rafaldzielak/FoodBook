@@ -1,8 +1,10 @@
 import city from "../actions/city";
-import { CLEAR_CITY, GET_CITY, SET_CITY } from "../actions/types";
+import { CLEAR_CITY, CLEAR_SORTING, GET_CITY, SET_CITY, SET_SORTING } from "../actions/types";
 
 const initialState = {
   city: "lodz",
+  sort: "",
+  order: "",
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +14,10 @@ export default function (state = initialState, action) {
       return { ...state, city: payload };
     case CLEAR_CITY:
       return { ...state, city: "" };
+    case SET_SORTING:
+      return { ...state, sort: payload.sort, order: payload.order };
+    case CLEAR_SORTING:
+      return { ...state, sort: "", order: "" };
     default:
       return state;
   }

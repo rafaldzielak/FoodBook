@@ -22,9 +22,11 @@
     "jsonwebtoken": "^8.5.1",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.10.11",
+    "nouislider-react": "^3.3.9",
     "react-materialize": "^3.9.3",
     "request": "^2.88.2",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.1",
+    "wnumb": "^1.2.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

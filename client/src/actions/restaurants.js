@@ -1,8 +1,8 @@
 import { GET_RESTAURANTS, CLEAR_RESTAURANTS, SET_LOADING } from "./types";
 import axios from "axios";
 
-export const getRestaurants = (city, page = 1) => async (dispatch) => {
-  const response = await axios.get(`/api/restaurants/${city}/${page}`);
+export const getRestaurants = (city, page = 1, sort = "", order = "") => async (dispatch) => {
+  const response = await axios.get(`/api/restaurants/${city}/${page}?sort=${sort}&order=${order}`);
   console.log(response.data);
   dispatch({ type: GET_RESTAURANTS, payload: response.data });
 };

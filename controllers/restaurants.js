@@ -8,13 +8,19 @@ function getRandomInt(min, max) {
 }
 
 exports.getRestaurants = asyncHandler(async (req, res, next) => {
-  const start = `start=${(req.params.page - 1) * 20}`;
-  console.log(start);
+  const sort = req.query.sort;
+  let order = req.query.order;
+  if (sort === "cost") {
+    order = "asc";
+  }
+  const startNumber = parseInt(req.params.page - 1) * 20;
+  const start = `start=${startNumber}`;
+  // console.log(start);
   const citySuggestion = await axios.get(
     `https://developers.zomato.com/api/v2.1/locations?query=${req.params.cityquery}`
   );
   const restaurants = await axios.get(
-    `https://developers.zomato.com/api/v2.1/search?entity_id=${citySuggestion.data.location_suggestions[0].city_id}&entity_type=city`
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${citySuggestion.data.location_suggestions[0].city_id}&entity_type=city&${start}&sort=${sort}&order=${order}`
     //&start=20
   );
   for (restaurant of restaurants.data.restaurants) {
