@@ -13,10 +13,9 @@ const Pagination = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
-    console.log(city);
     setLoadingRestaurants();
     getRestaurants(city, currentPage, sort, order);
-  }, [currentPage, sort]);
+  }, [currentPage, sort, city]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -66,14 +65,14 @@ const Pagination = ({
             onClick={(e) => {
               changePage(currentPage, 3);
             }}
-            className='page'>
+            className='page hide-on-small-only'>
             {currentPage + 3}
           </li>
           <li
             onClick={(e) => {
               changePage(currentPage, 4);
             }}
-            className='page'>
+            className='page hide-on-small-only'>
             {currentPage + 4}
           </li>
           <li

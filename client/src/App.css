@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 :root {
-  --primary-color: #ff6e40;
+  --primary-color: #ff9e80;
+  --darker-primary-color: #ff7a52;
   /* --secondary-color: #f99500; */
   /* --light-color: #f3f3f3; */
   --dark-color: #28334aff;
@@ -28,6 +29,73 @@ a {
 
 p {
   margin: 0.75rem 0;
+}
+
+.p-t2 {
+  margin-top: 1rem;
+  /* padding-top: 3rem; */
+}
+.dropdown-trigger {
+  text-align: center;
+  /* padding: 2rem; */
+  margin-top: 0.95rem;
+  width: 150px;
+}
+.btn {
+  height: 55px;
+}
+.sort-icon i {
+  font-size: 100px;
+}
+.btn i {
+  font-size: 30px;
+  line-height: 55px;
+}
+.btn,
+.btn-large,
+.btn-small {
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+}
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+  color: var(--dark-color);
+  background-color: #ff7a52;
+}
+.btn-large {
+  width: 150px;
+  text-align: center;
+  padding: 0 40%;
+}
+
+.btn:focus,
+.btn-large:focus,
+.btn-small:focus {
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+}
+.dropdown-elem {
+  text-align: center;
+  /* background-color: var(--primary-color); */
+  font-size: 1.4rem;
+  /* color: var(--dark-color); */
+  display: block;
+  line-height: 22px;
+  padding: 14px 16px;
+  height: 50px;
+}
+.dropdown-content {
+  /* background-color: var(--primary-color); */
+}
+.no-filter {
+  height: 30px;
+}
+.dollar-green {
+  color: #00836d;
+}
+.gold {
+  color: #ffd700;
 }
 
 .page {
@@ -60,7 +128,6 @@ p {
   background-color: #eee;
   cursor: auto;
 }
-
 
 .noUi-connect {
   background-color: var(--primary-color);
@@ -154,7 +221,7 @@ a {
   padding: 0.8rem;
 }
 .ranking-item i {
-  color: var(--primary-color);
+  color: var(--darker-primary-color);
   width: 17px;
   text-align: center;
 }
@@ -166,10 +233,12 @@ a {
 }
 .restaurant-name {
   color: var(--dark-color);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   grid-area: name;
-  overflow: hidden;
+  /* overflow: visible; */
+  /* overflow: hidden; */
 }
+
 .restaurant-photo {
   height: 100%;
   width: 150px;
@@ -185,7 +254,7 @@ a {
   grid-area: food;
 }
 .rating span.stars {
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 .rating span.votes {
   color: #999;
@@ -272,7 +341,7 @@ a {
     font-size: 1.8rem;
   }
   .restaurant-name {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .ranking-item {
     font-size: 0.8rem;
@@ -285,9 +354,17 @@ a {
     padding: 0.4rem;
   }
   .ranking-item i {
-    color: var(--primary-color);
     width: 13px;
     text-align: center;
+  }
+  .dropdown-trigger {
+    /* padding: 2rem; */
+    margin-top: 0.95rem;
+    width: 80px;
+  }
+  .btn-large {
+    width: 80px;
+    padding: 0 30%;
   }
 }
 
@@ -323,9 +400,10 @@ a {
   }
   .restaurant-photo {
     width: 150px;
+    object-fit: none;
   }
   .restaurant-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .map {
     align-self: auto;
@@ -367,6 +445,24 @@ a {
   }
   .map {
     align-self: auto;
+  }
+  .dropdown-trigger {
+    /* padding: 2rem; */
+    margin-top: 0.95rem;
+    width: 60px;
+  }
+  .btn-large {
+    width: 60px;
+    padding: 0 30%;
+  }
+  .page {
+    padding: 1rem;
+    padding-bottom: 3rem;
+    margin: 0.25rem;
+    margin-bottom: 2rem;
+    background-color: #eee;
+    transition: all 0.2s ease-in-out;
+    width: 50px;
   }
 }
 

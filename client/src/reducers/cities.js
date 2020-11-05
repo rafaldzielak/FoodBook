@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
     case SET_CITY:
       return { ...state, city: payload };
     case CLEAR_CITY:
-      return { ...state, city: "" };
+      return { ...state, city: "", loading: false };
     case SET_SORTING:
       return { ...state, sort: payload.sort, order: payload.order };
     case CLEAR_SORTING:

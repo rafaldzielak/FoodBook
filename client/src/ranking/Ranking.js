@@ -6,13 +6,14 @@ import Pagination from "./Pagination";
 import Search from "../layout/Search";
 import Spinner from "../layout/Spinner";
 
-const Ranking = ({ restaurants: { restaurants, loading } }) => {
+const Ranking = ({ city, restaurants: { restaurants, loading } }) => {
   console.log(restaurants);
 
   return (
     <Fragment>
       <Search />
-      {loading ? (
+      {console.log(city)}
+      {loading && city ? (
         <Spinner />
       ) : (
         <Fragment>

@@ -81,7 +81,7 @@ const RankingItem = (props) => {
       {restaurant && (
         <div className='ranking-item'>
           <img className='restaurant-photo' src={restaurant.photo} alt='' />
-          <div className='restaurant-name'>{restaurant.name}</div>
+          <div className='restaurant-name truncate'>{restaurant.name}</div>
           <div className='rating'>
             <span className='stars'>{getStarRating(restaurant.user_rating.aggregate_rating)}</span>
             &nbsp;

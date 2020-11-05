@@ -5,94 +5,88 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setCity, setSorting, clearSorting } from "../actions/city";
 import "materialize-css";
-import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import wNumb from "wnumb";
+import noFilter from "./no-filter.png";
 
-import {
-  Collapsible,
-  CollapsibleItem,
-  Icon,
-  Checkbox,
-  Button,
-  Modal,
-  Dropdown,
-  Divider,
-} from "react-materialize";
+import { Icon, Button, Dropdown, Divider, TextInput, Row, Col } from "react-materialize";
 
 const Search = ({ city, setCity, setAlert, getRestaurants, setSorting, clearSorting }) => {
   const [cityInput, setCityInput] = useState("");
   const searchForRestaurantsInCity = (e) => {
     e.preventDefault();
-    setCity(cityInput);
-    setCityInput("");
+    if (cityInput.length < 2) {
+      console.log("alert");
+      setAlert("Please enter at least 2 characters", "danger");
+    } else {
+      setCity(cityInput);
+      setCityInput("");
+    }
   };
 
   // const [priceFilter, setPriceFilter] = useState([1, 4]);
 
   return (
     <div>
-      <div class='row'>
-        <form class='col s12' onSubmit={(e) => searchForRestaurantsInCity(e)}>
-          <div class='row'>
-            <div class='input-field col s12'>
-              <i class='material-icons prefix'>location_city</i>
-              <input
-                placeholder='Search for the city'
-                id='icon_prefix'
-                type='text'
-                value={cityInput}
-                onChange={(e) => setCityInput(e.target.value)}
-              />
-            </div>
-          </div>
+      <Row>
+        <form onSubmit={(e) => searchForRestaurantsInCity(e)}>
+          <Col className='s6' xl={8} l={6} s={3}>
+            <TextInput
+              s={12}
+              value={cityInput}
+              onChange={(e) => setCityInput(e.target.value)}
+              id='TextInput-4'
+              label='Search for the city'
+            />
+          </Col>
+          <Col s={1.5}>
+            <Button s={12} large className='p-t2' node='button' type='submit'>
+              <Icon right>send</Icon>
+            </Button>
+          </Col>
         </form>
-      </div>
-      <Dropdown
-        id='Dropdown_6'
-        options={{
-          alignment: "left",
-          autoTrigger: true,
-          closeOnClick: true,
-          constrainWidth: true,
-          container: null,
-          coverTrigger: true,
-          hover: false,
-          inDuration: 150,
-          onCloseEnd: null,
-          onCloseStart: null,
-          onOpenEnd: null,
-          onOpenStart: null,
-          outDuration: 250,
-        }}
-        trigger={<Button node='button'>Drop Me!</Button>}>
-        <p
-          onClick={(e) => {
-            setSorting("cost");
-          }}>
-          Price
-        </p>
-        <p
-          onClick={(e) => {
-            setSorting("rating");
-          }}>
-          Rating
-        </p>
-        <Divider />
-        <p
-          onClick={(e) => {
-            clearSorting();
-          }}>
-          Default
-        </p>
-        <a href='#'>
-          <Icon>view_module</Icon>
-          four
-        </a>
-        <a href='#'>
-          <Icon>cloud</Icon> five
-        </a>
-      </Dropdown>
+
+        <Col s={2}>
+          <Dropdown
+            className='p-t2'
+            id='Dropdown_6'
+            options={{
+              alignment: "right",
+              autoTrigger: true,
+              closeOnClick: true,
+              constrainWidth: true,
+              container: null,
+              coverTrigger: true,
+              hover: false,
+              inDuration: 150,
+              onCloseEnd: null,
+              onCloseStart: null,
+              onOpenEnd: null,
+              onOpenStart: null,
+              outDuration: 250,
+            }}
+            trigger={
+              <Button node='button'>
+                <Icon className='sort-icon'>sort</Icon>
+              </Button>
+            }>
+            <p className='dropdown-elem' onClick={(e) => setSorting("cost")}>
+              <Icon className='dollar-green' small>
+                attach_money
+              </Icon>
+            </p>
+            <Divider />
+            <p className='dropdown-elem' onClick={(e) => setSorting("rating")}>
+              <i className='fas fa-star gold'></i>
+              <i className='fas fa-star gold'></i>
+              <i className='fas fa-star gold'></i>
+            </p>
+            <Divider />
+            <p className='dropdown-elem' onClick={(e) => clearSorting()}>
+              <img className='no-filter' src={noFilter} alt='AAA' />
+            </p>
+          </Dropdown>
+        </Col>
+      </Row>
     </div>
   );
 };

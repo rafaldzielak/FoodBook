@@ -19,6 +19,10 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
   const citySuggestion = await axios.get(
     `https://developers.zomato.com/api/v2.1/locations?query=${req.params.cityquery}`
   );
+  console.log(citySuggestion.data);
+  if (citySuggestion.data.location_suggestions.length === 0) {
+    return res.status(400).json("No suggestions for given input");
+  }
   const restaurants = await axios.get(
     `https://developers.zomato.com/api/v2.1/search?entity_id=${citySuggestion.data.location_suggestions[0].city_id}&entity_type=city&${start}&sort=${sort}&order=${order}`
     //&start=20
