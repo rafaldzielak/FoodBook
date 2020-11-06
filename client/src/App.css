@@ -241,8 +241,91 @@ a {
 
 .restaurant-photo {
   height: 100%;
-  width: 150px;
+  width: 100%;
   grid-area: photo;
+  object-fit: cover;
+}
+.ranking-item.big {
+  height: 400px;
+  border: 1px solid black;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-areas:
+    "photo name header"
+    "photo rating review1 "
+    "photo map review1 "
+    "photo phone review2"
+    "photo price review2"
+    "photo food review3"
+    "photo book review3";
+  grid-template-columns: 230px 1fr 2fr;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 0.4rem 1rem;
+  padding: 0.8rem;
+}
+.ranking-item.big .restaurant-name {
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  grid-area: name;
+  align-self: center;
+}
+.header-right {
+  grid-area: header;
+  font-size: 1.5rem;
+  align-self: center;
+  justify-self: center;
+  /* color: var(--darker-primary-color); */
+}
+.divider {
+  background-color: var(--primary-color);
+}
+.ranking-item.big .map {
+  align-self: flex-start;
+  grid-area: map;
+}
+
+/* .ranking-item.big .rating {
+  align-self: flex-start;
+  justify-self: right;
+} */
+.ranking-item.big .rating.right {
+  align-self: flex-start;
+  font-size: 1.5rem;
+  justify-self: left;
+}
+.modal-footer .btn-flat {
+  background-color: var(--primary-color);
+}
+
+.review {
+  /* width: 45vw; */
+  height: 45px;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.review-1 {
+  grid-area: review1;
+}
+.review-2 {
+  grid-area: review2;
+}
+.review-3 {
+  grid-area: review3;
+}
+.review-4 {
+  grid-area: review4;
+}
+.review-5 {
+  grid-area: review5;
+}
+
+.modal {
+  width: 90vw !important ;
+}
+
+.restaurant-photo-big {
+  width: 250px;
   object-fit: cover;
 }
 .rating {

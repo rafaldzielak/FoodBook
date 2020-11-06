@@ -29,7 +29,7 @@ const Search = ({ city, setCity, setAlert, getRestaurants, setSorting, clearSort
     <div>
       <Row>
         <form onSubmit={(e) => searchForRestaurantsInCity(e)}>
-          <Col className='s6' xl={8} l={6} s={3}>
+          <Col className='s6' xl={8} l={5} s={3}>
             <TextInput
               s={12}
               value={cityInput}
@@ -38,7 +38,7 @@ const Search = ({ city, setCity, setAlert, getRestaurants, setSorting, clearSort
               label='Search for the city'
             />
           </Col>
-          <Col s={1.5}>
+          <Col s={2}>
             <Button s={12} large className='p-t2' node='button' type='submit'>
               <Icon right>send</Icon>
             </Button>

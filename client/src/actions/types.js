@@ -8,3 +8,5 @@ export const CLEAR_CITY = "CLEAR_CITY";
 export const SET_LOADING = "SET_LOADING";
 export const SET_SORTING = "SET_SORTING";
 export const CLEAR_SORTING = "CLEAR_SORTING";
+export const SET_REVIEWS = "SET_REVIEWS";
+export const CLEAR_REVIEWS = "CLEAR_REVIEWS";

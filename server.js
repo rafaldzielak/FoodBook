@@ -9,6 +9,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.json("API RUNNING"));
 
 app.use("/api/restaurants", require("./routes/restaurants"));
+app.use("/api/reviews", require("./routes/reviews"));
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
