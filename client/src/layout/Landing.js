@@ -4,8 +4,7 @@ import Search from "./Search";
 
 const Landing = () => {
   return (
-    <div>
-      
+    <div className='container-custom'>
       <Ranking />
     </div>
   );

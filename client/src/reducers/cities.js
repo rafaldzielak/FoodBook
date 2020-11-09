@@ -2,7 +2,7 @@ import city from "../actions/city";
 import { CLEAR_CITY, CLEAR_SORTING, GET_CITY, SET_CITY, SET_SORTING } from "../actions/types";
 
 const initialState = {
-  city: "lodz",
+  city: "",
   sort: "",
   order: "",
 };

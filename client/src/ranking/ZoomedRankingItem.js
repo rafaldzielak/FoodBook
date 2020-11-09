@@ -66,7 +66,7 @@ const ZoomedRankingItem = ({
           startingTop: "4%",
         }}
         // root={[object HTMLBodyElement]}
-        trigger={<span> Click here for more info</span>}>
+        trigger={<span className='pointer'> Click here for more info</span>}>
         <div className='ranking-item big'>
           {/* {getReviews(restaurant.id)} */}
           {/* <img className='restaurant-photo-big' src={restaurant.photo} alt='' /> */}

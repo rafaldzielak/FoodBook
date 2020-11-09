@@ -198,7 +198,7 @@ a {
 /* Utility Classes */
 .container-custom {
   max-width: 1200px;
-  background-color: white;
+  /* background-color: white; */
   margin: auto;
   /*In the middle */
   padding: 0 2rem;
@@ -350,16 +350,89 @@ a {
   grid-area: price;
 }
 .more {
-  cursor: pointer;
+  /* cursor: pointer; */
   grid-area: more;
+}
+.pointer {
+  cursor: pointer;
+  font-weight: 600;
+}
+.showcase-desc {
+  position: relative;
+  top: calc(12vh - 60px);
+}
+
+.showcase {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  /* background-image: url("./img/showcase-background.jpg"); */
+
+  height: calc(100vh - 60px);
+  /* width: %; */
+  background: url(./img/showcase-background.jpg) center center !important;
+}
+.showcase h3 {
+  color: white;
+}
+
+.showcase-search {
+  max-width: 1200px;
+  position: relative;
+  top: calc(22vh - 60px);
+  margin: auto;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default) {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.showcase-search input[type="text"]:not(.browser-default) {
+  height: 4rem;
+  font-size: 2rem;
+}
+.showcase-search .input-field.col label {
+  color: white;
+  font-size: 1.5rem;
+}
+.card-panel {
+  padding: 3rem;
+  padding-bottom: 1rem;
+}
+
+.showcase-search input:not([type]),
+.showcase-search input[type="text"]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid var(--primary-color);
+  box-shadow: 0 1px 0 0 var(--primary-color);
+  color: white;
+  text-transform: capitalize;
+}
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label {
+  color: var(--primary-color);
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid var(--primary-color);
+  box-shadow: 0 1px 0 0 var(--primary-color);
 }
 
 .alert {
+  position: sticky;
   padding: 1rem;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   background: #555555;
   color: #333;
   border-radius: 10px;
+  z-index: 10;
+  width: 70vw;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .alert-danger {
   background: #d32f2f;

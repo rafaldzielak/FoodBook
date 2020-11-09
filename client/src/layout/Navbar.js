@@ -1,21 +1,22 @@
 import React from "react";
 import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav id='nav'>
       <div class='logo'>
-        <a href='#home'>
+        <Link to='/'>
           <img src={logo} alt='logo' />
           <span class='text-primary'> FoodBook</span>
-        </a>
+        </Link>
       </div>
       <ul>
         <li>
-          <a href='#what'>Zakres Usług</a>
+          <Link to='#what'>Zakres Usług</Link>
         </li>
         <li>
-          <a href='#contact'>Kontakt</a>
+          <Link to='#contact'>Kontakt</Link>
         </li>
       </ul>
     </nav>

@@ -7,6 +7,20 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+const replaceSigns = (stringToReplace) => {
+  stringToReplace = stringToReplace
+    .replace(/ę/gi, "e")
+    .replace(/ó/gi, "o")
+    .replace(/ą/gi, "a")
+    .replace(/ś/gi, "s")
+    .replace(/ł/gi, "l")
+    .replace(/ź/gi, "z")
+    .replace(/ż/gi, "z")
+    .replace(/ć/gi, "c")
+    .replace(/ń/gi, "n");
+  return stringToReplace;
+};
+
 exports.getRestaurants = asyncHandler(async (req, res, next) => {
   const sort = req.query.sort;
   let order = req.query.order;
@@ -16,8 +30,9 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
   const startNumber = parseInt(req.params.page - 1) * 20;
   const start = `start=${startNumber}`;
   // console.log(start);
+  const cityToFind = replaceSigns(req.params.cityquery);
   const citySuggestion = await axios.get(
-    `https://developers.zomato.com/api/v2.1/locations?query=${req.params.cityquery}`
+    `https://developers.zomato.com/api/v2.1/locations?query=${cityToFind}`
   );
   if (citySuggestion.data.location_suggestions.length === 0) {
     return res.status(400).json("No suggestions for given input");

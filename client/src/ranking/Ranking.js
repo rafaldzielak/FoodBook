@@ -4,11 +4,12 @@ import { connect } from "react-redux";
 import RankingItem from "./RankingItem";
 import Pagination from "./Pagination";
 import Search from "../layout/Search";
-import Spinner from "../layout/Spinner";
+
 import { Col, Preloader } from "react-materialize";
 
 const Ranking = ({ city, restaurants: { restaurants, loading }, reviews }) => {
   console.log(restaurants);
+  
 
   return (
     <Fragment>
