@@ -5,9 +5,7 @@ const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   console.log(err.message);
   error.message = err.message;
-  res
-    .status(error.statusCode || 500)
-    .json({ success: false, error: error.message || "Server error" });
+  res.status(error.statusCode || 500).json({ success: false, error: error || "Server error" });
 };
 
 module.exports = errorHandler;

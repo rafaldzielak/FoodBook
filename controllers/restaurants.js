@@ -29,7 +29,6 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
   }
   const startNumber = parseInt(req.params.page - 1) * 20;
   const start = `start=${startNumber}`;
-  // console.log(start);
   const cityToFind = replaceSigns(req.params.cityquery);
   const citySuggestion = await axios.get(
     `https://developers.zomato.com/api/v2.1/locations?query=${cityToFind}`
@@ -39,12 +38,10 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
   }
   const restaurants = await axios.get(
     `https://developers.zomato.com/api/v2.1/search?entity_id=${citySuggestion.data.location_suggestions[0].city_id}&entity_type=city&${start}&sort=${sort}&order=${order}`
-    //&start=20
   );
   for (restaurant of restaurants.data.restaurants) {
     const photoRandomResolution = `${getRandomInt(300, 450)}x${getRandomInt(300, 550)}`;
     restaurant.restaurant.photo = `https://source.unsplash.com/${photoRandomResolution}/?restaurant`;
-    // console.log(restaurant);
   }
 
   res.status(200).json(restaurants.data);

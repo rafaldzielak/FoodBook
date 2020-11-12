@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import "./App.css";
 import Navbar from "./layout/Navbar";
 import Landing from "./layout/Landing";
@@ -15,8 +14,8 @@ function App() {
         <Navbar />
         <Alert />
         <Switch>
-          <Route exact path to='/' component={Showcase} />
-          <Route path to='/:id' component={Landing} />
+          <Route exact path='/' component={Showcase} />
+          <Route path='/:id' component={Landing} />
         </Switch>
       </Router>
     </Provider>

@@ -5,20 +5,17 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav id='nav'>
-      <div class='logo'>
+      <div className='logo'>
         <Link to='/'>
           <img src={logo} alt='logo' />
-          <span class='text-primary'> FoodBook</span>
+          <span className='text-primary'> FoodBook</span>
         </Link>
       </div>
-      <ul>
+      {/* <ul>
         <li>
-          <Link to='#what'>Zakres Usług</Link>
+          <Link to='#what'>Favourites</Link>
         </li>
-        <li>
-          <Link to='#contact'>Kontakt</Link>
-        </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 };

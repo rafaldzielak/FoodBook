@@ -1,5 +1,4 @@
-import React from "react";
-import { CLEAR_CITY, CLEAR_SORTING, GET_CITY, SET_CITY, SET_SORTING } from "./types";
+import { CLEAR_CITY, CLEAR_SORTING, SET_CITY, SET_SORTING } from "./types";
 
 export const setCity = (city) => (dispatch) => {
   dispatch({ type: SET_CITY, payload: city });

@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Modal, Button, HTMLBodyElement } from "react-materialize";
 import ZoomedRankingItem from "./ZoomedRankingItem";
 import { clearReviews, getReviews } from "../actions/reviews";
 import { connect } from "react-redux";
@@ -8,7 +7,9 @@ import PropTypes from "prop-types";
 const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
   const getStarRating = (rating) => {
     // console.log("rating");
-    let stars = <i className='fas fa-star'></i>;
+    let starFull = <i className='fas fa-star'></i>;
+    let starHalf = <i className='fas fa-star-half-alt'></i>;
+    let starEmpty = <i className='far fa-star'></i>;
     if (rating > 4.7)
       return (
         <Fragment>
@@ -22,81 +23,81 @@ const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
     else if (rating > 4.2)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star-half-alt'></i>
+          {starFull}
+          {starFull}
+          {starFull}
+          {starFull}
+          {starHalf}
         </Fragment>
       );
     else if (rating > 3.7)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starFull}
+          {starFull}
+          {starFull}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 3.2)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star-half-alt'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starFull}
+          {starFull}
+          {starHalf}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 2.7)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starFull}
+          {starFull}
+          {starEmpty}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 2.2)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star-half-alt'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starFull}
+          {starHalf}
+          {starEmpty}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 1.7)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starFull}
+          {starEmpty}
+          {starEmpty}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 1.2)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star-half-alt'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starHalf}
+          {starEmpty}
+          {starEmpty}
+          {starEmpty}
         </Fragment>
       );
     else if (rating > 0.7)
       return (
         <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
-          <i className='far fa-star'></i>
+          {starFull}
+          {starEmpty}
+          {starEmpty}
+          {starEmpty}
+          {starEmpty}
         </Fragment>
       );
   };
@@ -108,12 +109,6 @@ const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
     }
     return dollars;
   }
-  // const getMoreInfo = () => {
-  //   console.log(reviews.reviews);
-  //   if (reviews.reviews.length === 0) {
-  //     getReviews(restaurant.id);
-  //   }
-  // };
 
   const wrappedInfo = () => (
     <Fragment>
@@ -126,28 +121,29 @@ const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
         <span className='votes'>({restaurant.user_rating.votes} votes)</span>
       </div>
       <div className='phone'>
-        <i class='fas fa-phone'></i>&nbsp;
+        <i className='fas fa-phone'></i>&nbsp;
         {restaurant.phone_numbers}
       </div>
       <div className='food'>
-        <i class='fas fa-utensils'></i>&nbsp;
+        <i className='fas fa-utensils'></i>&nbsp;
         {restaurant.cuisines && restaurant.cuisines}
       </div>
       <div className='map'>
-        <i class='fas fa-map-marker-alt'></i>&nbsp;
+        <i className='fas fa-map-marker-alt'></i>&nbsp;
         <a
           href={`http://www.google.com/maps/place/${restaurant.location.latitude},${restaurant.location.longitude}`}
-          target='_blank'>
+          target='_blank'
+          rel='noreferrer'>
           {restaurant.location.address}
         </a>
       </div>
       <div className='price'>
-        <i class='fas fa-dollar-sign'></i>
+        <i className='fas fa-dollar-sign'></i>
         <b>{getPrice(restaurant.price_range)}</b>
       </div>
       <div className='book'>
-        <a href={`${restaurant.menu_url}`} target='_blank'>
-          <i class='fas fa-book'></i> Menu
+        <a href={`${restaurant.menu_url}`} target='_blank' rel='noreferrer'>
+          <i className='fas fa-book'></i> Menu
         </a>
       </div>
     </Fragment>
@@ -155,12 +151,11 @@ const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
 
   return (
     <Fragment>
-      {/* {console.log(restaurant)} */}
       {restaurant && (
         <div className='ranking-item'>
           {wrappedInfo()}
           <div className='more'>
-            <i class='fas fa-hand-pointer'></i>
+            <i className='fas fa-hand-pointer'></i>
             <span>
               <ZoomedRankingItem
                 restaurant={restaurant}

@@ -1,21 +1,26 @@
-import React, { useState, useEffect, Fragment, useMemo, useRef } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { getRestaurants, setLoadingRestaurants } from "../actions/restaurants";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Pagination = ({
-  restaurants: { restaurants, loading },
+  restaurants: { loading },
   city,
   sort,
   order,
   getRestaurants,
   setLoadingRestaurants,
 }) => {
+  const { id } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
-    setLoadingRestaurants();
-    getRestaurants(city, currentPage, sort, order);
-  }, [currentPage, sort, city]);
+    //so it won't trigger 2x when refreshing page
+    if (city !== "") {
+      setLoadingRestaurants();
+      const cityToFind = city === "" ? id : city;
+      getRestaurants(cityToFind, currentPage, sort, order);
+    }
+  }, [currentPage, sort, city, setLoadingRestaurants, id, getRestaurants, order]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -32,13 +37,13 @@ const Pagination = ({
   return (
     <Fragment>
       {!loading && (
-        <ul class='pagination center'>
+        <ul className='pagination center'>
           <li
             onClick={(e) => {
               changePage(currentPage, -1);
             }}
             className={`waves-effect page ${disabledPages[0] && "disabled"}`}>
-            <i class='fas fa-chevron-left material-icons'></i>
+            <i className='fas fa-chevron-left material-icons'></i>
           </li>
           <li
             onClick={(e) => {
@@ -80,7 +85,7 @@ const Pagination = ({
               changePage(currentPage, 1);
             }}
             className={`page ${disabledPages[1] && "disabled"}`}>
-            <i class='fas fa-chevron-right'></i>
+            <i className='fas fa-chevron-right'></i>
           </li>
         </ul>
       )}

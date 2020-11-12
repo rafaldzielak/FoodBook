@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { setAlert } from "../actions/alert";
 import { getRestaurants } from "../actions/restaurants";
 import PropTypes from "prop-types";
@@ -11,31 +11,33 @@ import { useParams, Redirect } from "react-router-dom";
 import { Icon, Button, TextInput, Row, Col } from "react-materialize";
 import Sort from "./Sort";
 
-const Search = ({ city, setCity, setAlert, getRestaurants, hideSort = false }) => {
+const Search = ({ city, setCity, setAlert, hideSort = false }) => {
   const [redirect, setRedirect] = useState(false);
 
   const { id } = useParams();
+
+  useEffect(() => {
+    if (!city) {
+      setCity(cityInput === "" ? id : cityInput);
+    }
+  });
+
   let extraCols = hideSort ? 2 : 0;
   const [cityInput, setCityInput] = useState("");
   const searchForRestaurantsInCity = (e) => {
     e.preventDefault();
     if (cityInput.length < 2) {
-      console.log("alert");
       setAlert("Please enter at least 2 characters", "danger");
     } else {
       setCity(cityInput);
       setCityInput("");
       setRedirect(true);
-      // if (redirect) return <Redirect to='/target' />;
     }
   };
 
   const renderRedirect = () => {
     if (redirect) {
-      console.log("redirect");
-      console.log(city);
       return <Redirect to={`/${city}`} />;
-      // return <Redirect to='dupa' />;
     }
   };
 
@@ -70,8 +72,6 @@ Search.propTypes = {
   setAlert: PropTypes.func.isRequired,
   getRestaurants: PropTypes.func.isRequired,
   setCity: PropTypes.func.isRequired,
-  setSorting: PropTypes.func.isRequired,
-  clearSorting: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,4 +1,4 @@
-import { GET_RESTAURANTS, CLEAR_RESTAURANTS, SET_LOADING, SET_SORTING } from "../actions/types.js";
+import { GET_RESTAURANTS, SET_LOADING } from "../actions/types.js";
 
 const initialState = {
   restaurants: [],

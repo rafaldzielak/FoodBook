@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useState, useRef } from "react";
-import { Modal, Button, Preloader, Col } from "react-materialize";
+import React, { Fragment, useRef } from "react";
+import { Modal, Preloader, Col } from "react-materialize";
 import { clearReviews, getReviews } from "../actions/reviews";
 import { connect } from "react-redux";
-import Spinner from "../layout/Spinner";
 
 const ZoomedRankingItem = ({
   restaurant,
@@ -14,14 +13,8 @@ const ZoomedRankingItem = ({
   getStarRating,
 }) => {
   const isInModal = useRef(false);
-  // const [isInModal, setIsInModal] = useState(false);
-  // console.log(restaurant.R.res_id);
   const printReviews = (number) => {
-    // console.log("loading");
-    // console.log(loading);
     for (let i = 0; i < 3; i++) {
-      // console.log("IN PRINT REVIEWS");
-      // console.log(reviews.reviews);
       if (reviews.reviews && reviews.reviews.length >= number) {
         return (
           <div className={`review-${number}`}>
@@ -34,7 +27,6 @@ const ZoomedRankingItem = ({
               </span>
             </p>
             <p className='review truncate'>{reviews.reviews[number].review.review_text}</p>
-            {/* {number !== 3 && <div className='divider'></div>} */}
           </div>
         );
       }
