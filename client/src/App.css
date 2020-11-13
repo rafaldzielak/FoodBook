@@ -371,7 +371,6 @@ a {
   /* background-image: url("./img/showcase-background.jpg"); */
 
   height: calc(100vh - 60px);
-  /* width: %; */
   background: url(./img/showcase-background.jpg) center center !important;
 }
 .showcase h3 {
