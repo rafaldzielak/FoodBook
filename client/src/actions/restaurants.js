@@ -9,6 +9,7 @@ export const getRestaurants = (city, page = 1, sort = "", order = "") => async (
       `/api/restaurants/${city}/${page}?sort=${sort}&order=${order}`
     );
     dispatch({ type: GET_RESTAURANTS, payload: response.data });
+    console.log(response.data);
   } catch (error) {
     dispatch(setAlert("No suggestions for given input, showing New York City instead", "danger"));
     dispatch({ type: SET_CITY, payload: "new york city" });

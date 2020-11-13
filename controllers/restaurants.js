@@ -40,6 +40,7 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
     `https://developers.zomato.com/api/v2.1/search?entity_id=${citySuggestion.data.location_suggestions[0].city_id}&entity_type=city&${start}&sort=${sort}&order=${order}`
   );
   for (restaurant of restaurants.data.restaurants) {
+    delete restaurant.restaurant.apikey;
     const photoRandomResolution = `${getRandomInt(300, 450)}x${getRandomInt(300, 550)}`;
     restaurant.restaurant.photo = `https://source.unsplash.com/${photoRandomResolution}/?restaurant`;
   }

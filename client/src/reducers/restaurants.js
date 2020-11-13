@@ -4,6 +4,7 @@ const initialState = {
   restaurants: [],
   loading: true,
   error: {},
+  foundRestaurants: 0,
 };
 
 export default function (state = initialState, action) {
@@ -11,7 +12,12 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_RESTAURANTS:
-      return { ...state, restaurants: payload.restaurants, loading: false };
+      return {
+        ...state,
+        restaurants: payload.restaurants,
+        foundRestaurants: payload.results_found,
+        loading: false,
+      };
     case SET_LOADING:
       console.log("set loading");
       return { ...state, loading: true };

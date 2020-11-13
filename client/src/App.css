@@ -244,6 +244,7 @@ a {
   width: 100%;
   grid-area: photo;
   object-fit: cover;
+  background: transparent url("./img/loading.gif") center no-repeat;
 }
 .ranking-item.big {
   height: 400px;
@@ -371,7 +372,6 @@ a {
   /* background-image: url("./img/showcase-background.jpg"); */
 
   height: calc(100vh - 60px);
-  /* width: %; */
   background: url(./img/showcase-background.jpg) center center !important;
 }
 .showcase h3 {

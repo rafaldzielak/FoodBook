@@ -35,13 +35,13 @@ const Sort = ({ setSorting, clearSorting }) => {
             attach_money
           </Icon>
         </p>
-        <Divider />
+        {/* <Divider /> */}
         <p className='dropdown-elem' onClick={(e) => setSorting("rating")}>
           <i className='fas fa-star gold'></i>
           <i className='fas fa-star gold'></i>
           <i className='fas fa-star gold'></i>
         </p>
-        <Divider />
+        {/* <Divider /> */}
         <p className='dropdown-elem' onClick={(e) => clearSorting()}>
           <img className='no-filter' src={noFilter} alt='AAA' />
         </p>
