@@ -264,6 +264,7 @@ a {
   gap: 0.4rem 1rem;
   padding: 0.8rem;
 }
+
 .ranking-item.big .restaurant-name {
   color: var(--dark-color);
   font-size: 1.8rem;
@@ -300,9 +301,14 @@ a {
 
 .review {
   /* width: 45vw; */
-  height: 45px;
+  height: 65px;
   overflow: hidden;
   white-space: pre-line;
+  margin: 0.2rem 0;
+}
+
+.ranking-item.big p {
+  margin: 0.25rem 0;
 }
 
 .review-1 {
@@ -323,6 +329,8 @@ a {
 
 .modal {
   width: 90vw !important ;
+  max-width: 1800px;
+  max-height: 100% !important;
 }
 
 .restaurant-photo-big {
@@ -443,7 +451,7 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   color: #fff;
 }
 
-@media only screen and (max-width: 900px) {
+@media (max-width: 900px) {
   h3 {
     font-size: 2rem;
   }
@@ -469,6 +477,45 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   }
   .ranking-item {
     grid-template-columns: 120px 1fr 1.2fr;
+  }
+
+  .review {
+    height: 75px;
+  }
+  p {
+    margin: 0.25rem 0;
+  }
+  .ranking-item.big {
+    /* height: 700px; */
+    margin: 0.5rem 0;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(7, 1fr) repeat(7, 2fr);
+    grid-template-areas:
+      "photo name"
+      "photo rating"
+      "photo map"
+      "photo phone"
+      "photo price"
+      "photo food"
+      "photo book"
+      "header header"
+      "review1 review1"
+      "review1 review1"
+      "review2 review2"
+      "review2 review2"
+      "review3 review3"
+      "review3 review3";
+    gap: 0.4rem 1rem;
+    padding: 0.8rem;
+    height: 75vh;
+  }
+  .ranking-item.big .restaurant-photo {
+    width: 250px;
+  }
+  .modal {
+    height: auto !important ;
+    top: 2% !important;
+    /* height: 96vh; */
   }
 }
 
@@ -522,6 +569,9 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
     width: 80px;
     padding: 0 30%;
   }
+  .ranking-item.big .restaurant-photo {
+    width: 200px;
+  }
 }
 
 @media only screen and (max-width: 530px) {
@@ -563,6 +613,21 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   }
   .map {
     align-self: auto;
+  }
+  .ranking-item.big .restaurant-photo {
+    width: 150px;
+  }
+  .modal {
+    width: 100% !important;
+  }
+  h4 {
+    font-size: 1.8rem;
+  }
+  .modal .modal-content .restaurant-name {
+    font-size: 1.4rem;
+  }
+  .modal .modal-content {
+    padding: 0.5rem;
   }
 }
 @media only screen and (max-width: 430px) {
@@ -620,6 +685,27 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
     transition: all 0.2s ease-in-out;
     width: 50px;
   }
+
+  .ranking-item.big {
+    margin: 0.3rem 0;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(7, 1fr) repeat(7, 3fr);
+    height: 85vh;
+    padding: 0.8rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+  .modal .modal-content .restaurant-name {
+    font-size: 1.2rem;
+  }
+  .ranking-item.big {
+    padding: 0.5rem;
+  }
+  .modal h4 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 350px) {
@@ -636,8 +722,20 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
   .restaurant-photo {
     width: 130px;
   }
+  .review {
+    overflow: auto;
+  }
 
   .ranking-item i {
     width: 11px;
+  }
+  .ranking-item.big {
+    padding: 0.5rem;
+  }
+  .ranking-item.big .restaurant-photo {
+    width: 120px;
+  }
+  .review {
+    height: 45px;
   }
 }
