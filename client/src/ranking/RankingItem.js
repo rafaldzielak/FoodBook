@@ -3,6 +3,7 @@ import ZoomedRankingItem from "./ZoomedRankingItem";
 import { clearReviews, getReviews } from "../actions/reviews";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Modal, Preloader, Col, Button } from "react-materialize";
 
 const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
   const getStarRating = (rating) => {
@@ -113,7 +114,7 @@ const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
   const wrappedInfo = () => (
     <Fragment>
       <img className='restaurant-photo' src={restaurant.photo} alt='' />
-      <div className='restaurant-name truncate'>{restaurant.name}</div>
+      <div className='restaurant-name truncate'>{restaurant.name} </div>
       <div className='rating'>
         <span className='stars'>{getStarRating(restaurant.user_rating.aggregate_rating)}</span>
         &nbsp;

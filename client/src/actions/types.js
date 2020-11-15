@@ -10,3 +10,5 @@ export const SET_SORTING = "SET_SORTING";
 export const CLEAR_SORTING = "CLEAR_SORTING";
 export const SET_REVIEWS = "SET_REVIEWS";
 export const CLEAR_REVIEWS = "CLEAR_REVIEWS";
+export const ADD_FAVOURITE = "ADD_FAVOURITE";
+export const CLEAR_FAVOURITES = "CLEAR_FAVOURITES";

@@ -11,11 +11,11 @@ const Navbar = () => {
           <span className='text-primary'> FoodBook</span>
         </Link>
       </div>
-      {/* <ul>
+      <ul>
         <li>
-          <Link to='#what'>Favourites</Link>
+          <Link to='/fav'>Favourites</Link>
         </li>
-      </ul> */}
+      </ul>
     </nav>
   );
 };

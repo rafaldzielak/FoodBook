@@ -37,7 +37,7 @@ const Search = ({ city, setCity, setAlert, hideSort = false }) => {
 
   const renderRedirect = () => {
     if (redirect) {
-      return <Redirect to={`/${city}`} />;
+      return <Redirect to={`/restaurants/${city}`} />;
     }
   };
 

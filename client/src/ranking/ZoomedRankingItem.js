@@ -1,5 +1,5 @@
-import React, { Fragment, useRef } from "react";
-import { Modal, Preloader, Col } from "react-materialize";
+import React, { Fragment, useRef, useState } from "react";
+import { Modal, Preloader, Col, Button } from "react-materialize";
 import { clearReviews, getReviews } from "../actions/reviews";
 import { connect } from "react-redux";
 
@@ -32,12 +32,57 @@ const ZoomedRankingItem = ({
       }
     }
   };
+
+  const getFavouriteFromLS = () => {
+    let favRestaurants;
+    if (localStorage.getItem("favouriteRestaurants") === null) {
+      return [];
+    } else {
+      return JSON.parse(localStorage.getItem("favouriteRestaurants"));
+    }
+  };
+
+  const checkIfIsFav = (id) => {
+    let favRestaurants = getFavouriteFromLS();
+    if (favRestaurants.includes(id)) return true;
+    else return false;
+  };
+  const [isFav, setIsFav] = useState(checkIfIsFav(restaurant.id));
+
+  const toggleFavourites = () => {
+    let favRestaurants = getFavouriteFromLS();
+    const index = favRestaurants.indexOf(restaurant.id);
+    if (index > -1) {
+      favRestaurants.splice(index, 1);
+    } else {
+      favRestaurants.push(restaurant.id);
+    }
+    localStorage.setItem("favouriteRestaurants", JSON.stringify(favRestaurants));
+    setIsFav((prevState) => !prevState);
+  };
   return (
     <Fragment>
       <Modal
         bottomSheet={false}
         fixedFooter={false}
-        header={restaurant.name}
+        header={
+          <Fragment>
+            <Button
+              tooltip={`${
+                isFav ? "Remove The Restaurant from" : "Add The Restaurant to"
+              } Your Favourites`}
+              className=''
+              onClick={toggleFavourites}
+              // node='button'
+              style={{
+                marginRight: "0px",
+              }}>
+              {/* <i class='material-icons left'>cloud</i> */}
+              {isFav ? <i className='fas fa-heart'></i> : <i className='far fa-heart'></i>}
+            </Button>{" "}
+            {restaurant.name}
+          </Fragment>
+        }
         id='Modal-0'
         open={false}
         options={{
@@ -63,6 +108,9 @@ const ZoomedRankingItem = ({
           {/* {getReviews(restaurant.id)} */}
           {/* <img className='restaurant-photo-big' src={restaurant.photo} alt='' /> */}
           {wrappedInfo()}
+          {/* <a class='waves-effect waves-light btn'>
+            <i class='material-icons left'>cloud</i>button
+          </a> */}
           <div className='header-right'>Latest reviews:</div>
           {loading && isInModal && (
             <Col className='center review-2' s={4}>

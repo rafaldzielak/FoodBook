@@ -299,6 +299,28 @@ a {
   background-color: var(--primary-color);
 }
 
+.modal-content .btn {
+  width: 80px;
+  height: 3rem;
+  position: relative;
+  top: -0.3rem;
+}
+.modal-content .btn i {
+  font-size: 30px;
+  line-height: 3.1rem;
+}
+
+.modal-content .btn,
+.modal-content .btn-large,
+.modal-content .btn-small {
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+}
+
+.fav-button {
+  background-color: var(--dark-color);
+}
+
 .review {
   /* width: 45vw; */
   height: 65px;

@@ -47,3 +47,16 @@ exports.getRestaurants = asyncHandler(async (req, res, next) => {
 
   res.status(200).json(restaurants.data);
 });
+
+exports.getRestaurant = asyncHandler(async (req, res, next) => {
+  const restaurant = await axios.get(
+    `https://developers.zomato.com/api/v2.1/restaurant?res_id=${req.params.id}`
+  );
+  // console.log(restaurant.data);
+  delete restaurant.data.apikey;
+  // restaurant.data.photo = restaurant.data.featured_image;
+  const photoRandomResolution = `${getRandomInt(300, 450)}x${getRandomInt(300, 550)}`;
+  restaurant.data.photo = `https://source.unsplash.com/${photoRandomResolution}/?restaurant`;
+
+  res.status(200).json(restaurant.data);
+});

@@ -1,7 +1,8 @@
-import { GET_RESTAURANTS, SET_LOADING } from "../actions/types.js";
+import { GET_RESTAURANTS, SET_LOADING, ADD_FAVOURITE, CLEAR_FAVOURITES } from "../actions/types.js";
 
 const initialState = {
   restaurants: [],
+  favourites: [],
   loading: true,
   error: {},
   foundRestaurants: 0,
@@ -18,8 +19,20 @@ export default function (state = initialState, action) {
         foundRestaurants: payload.results_found,
         loading: false,
       };
+    case ADD_FAVOURITE:
+      return {
+        ...state,
+        favourites: payload,
+        loading: false,
+      };
+    case CLEAR_FAVOURITES:
+      return {
+        ...state,
+        favourites: [],
+        loading: false,
+      };
+
     case SET_LOADING:
-      console.log("set loading");
       return { ...state, loading: true };
     default:
       return state;

@@ -19,7 +19,7 @@ const Pagination = ({
     if (city !== "") {
       setLoadingRestaurants();
       getRestaurants(cityToFind, currentPage, sort, order);
-      console.log(foundRestaurants);
+      // console.log(foundRestaurants);
     }
   }, [currentPage, sort, city, setLoadingRestaurants, getRestaurants, order, cityToFind]);
 
