@@ -3,104 +3,21 @@ import ZoomedRankingItem from "./ZoomedRankingItem";
 import { clearReviews, getReviews } from "../actions/reviews";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Modal, Preloader, Col, Button } from "react-materialize";
 
 const RankingItem = ({ restaurant, getReviews, clearReviews, reviews }) => {
   const getStarRating = (rating) => {
-    // console.log("rating");
     let starFull = <i className='fas fa-star'></i>;
     let starHalf = <i className='fas fa-star-half-alt'></i>;
     let starEmpty = <i className='far fa-star'></i>;
-    if (rating > 4.7)
-      return (
-        <Fragment>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-          <i className='fas fa-star'></i>
-        </Fragment>
-      );
-    else if (rating > 4.2)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starFull}
-          {starFull}
-          {starHalf}
-        </Fragment>
-      );
-    else if (rating > 3.7)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starFull}
-          {starFull}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 3.2)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starFull}
-          {starHalf}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 2.7)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starFull}
-          {starEmpty}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 2.2)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starHalf}
-          {starEmpty}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 1.7)
-      return (
-        <Fragment>
-          {starFull}
-          {starFull}
-          {starEmpty}
-          {starEmpty}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 1.2)
-      return (
-        <Fragment>
-          {starFull}
-          {starHalf}
-          {starEmpty}
-          {starEmpty}
-          {starEmpty}
-        </Fragment>
-      );
-    else if (rating > 0.7)
-      return (
-        <Fragment>
-          {starFull}
-          {starEmpty}
-          {starEmpty}
-          {starEmpty}
-          {starEmpty}
-        </Fragment>
-      );
+    return (
+      <Fragment>
+        {rating > 0.2 ? (rating > 0.7 ? starFull : starHalf) : starEmpty}
+        {rating > 1.2 ? (rating > 1.7 ? starFull : starHalf) : starEmpty}
+        {rating > 2.2 ? (rating > 2.7 ? starFull : starHalf) : starEmpty}
+        {rating > 3.2 ? (rating > 3.7 ? starFull : starHalf) : starEmpty}
+        {rating > 4.2 ? (rating > 4.7 ? starFull : starHalf) : starEmpty}
+      </Fragment>
+    );
   };
 
   function getPrice(number) {

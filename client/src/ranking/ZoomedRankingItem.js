@@ -22,9 +22,7 @@ const ZoomedRankingItem = ({
             <p>
               {getStarRating(reviews.reviews[number].review.rating)}{" "}
               {reviews.reviews[number].review.rating_text} -{" "}
-              <span className='grey-text '>
-                {reviews.reviews[number].review.review_time_friendly}
-              </span>
+              <span className='grey-text '>{reviews.reviews[number].review.review_time_friendly}</span>
             </p>
             <p className='review truncate'>{reviews.reviews[number].review.review_text}</p>
           </div>
@@ -34,7 +32,6 @@ const ZoomedRankingItem = ({
   };
 
   const getFavouriteFromLS = () => {
-    let favRestaurants;
     if (localStorage.getItem("favouriteRestaurants") === null) {
       return [];
     } else {
@@ -68,16 +65,12 @@ const ZoomedRankingItem = ({
         header={
           <Fragment>
             <Button
-              tooltip={`${
-                isFav ? "Remove The Restaurant from" : "Add The Restaurant to"
-              } Your Favourites`}
+              tooltip={`${isFav ? "Remove The Restaurant from" : "Add The Restaurant to"} Your Favourites`}
               className=''
               onClick={toggleFavourites}
-              // node='button'
               style={{
                 marginRight: "0px",
               }}>
-              {/* <i class='material-icons left'>cloud</i> */}
               {isFav ? <i className='fas fa-heart'></i> : <i className='far fa-heart'></i>}
             </Button>{" "}
             {restaurant.name}
@@ -105,12 +98,7 @@ const ZoomedRankingItem = ({
         // root={[object HTMLBodyElement]}
         trigger={<span className='pointer'> Click here for more info</span>}>
         <div className='ranking-item big'>
-          {/* {getReviews(restaurant.id)} */}
-          {/* <img className='restaurant-photo-big' src={restaurant.photo} alt='' /> */}
           {wrappedInfo()}
-          {/* <a class='waves-effect waves-light btn'>
-            <i class='material-icons left'>cloud</i>button
-          </a> */}
           <div className='header-right'>Latest reviews:</div>
           {loading && isInModal && (
             <Col className='center review-2' s={4}>
@@ -133,4 +121,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { getReviews, clearReviews })(ZoomedRankingItem);
-// export default ZoomedRankingItem;
